@@ -16,10 +16,10 @@ test("MessageList shows empty state when no messages", () => {
   render(<MessageList messages={[]} />);
 
   expect(
-    screen.getByText("Start a conversation to generate React components"),
+    screen.getByText("Start a conversation to generate React components")
   ).toBeDefined();
   expect(
-    screen.getByText("I can help you create buttons, forms, cards, and more"),
+    screen.getByText("I can help you create buttons, forms, cards, and more")
   ).toBeDefined();
 });
 
@@ -49,7 +49,7 @@ test("MessageList renders assistant messages", () => {
   render(<MessageList messages={messages} />);
 
   expect(
-    screen.getByText("I'll help you create a button component."),
+    screen.getByText("I'll help you create a button component.")
   ).toBeDefined();
 });
 
@@ -152,9 +152,7 @@ test("MessageList renders reasoning parts", () => {
 
   expect(screen.getByText("Reasoning")).toBeDefined();
   expect(
-    screen.getByText(
-      "The user wants a button component with specific styling.",
-    ),
+    screen.getByText("The user wants a button component with specific styling.")
   ).toBeDefined();
 });
 
@@ -193,11 +191,11 @@ test("MessageList renders multiple messages in correct order", () => {
   // Check the content of each message in order
   expect(messageContainers[0].textContent).toContain("First user message");
   expect(messageContainers[1].textContent).toContain(
-    "First assistant response",
+    "First assistant response"
   );
   expect(messageContainers[2].textContent).toContain("Second user message");
   expect(messageContainers[3].textContent).toContain(
-    "Second assistant response",
+    "Second assistant response"
   );
 });
 
@@ -280,13 +278,13 @@ test("MessageList shows loading for assistant message with empty parts", () => {
   ];
 
   const { container } = render(
-    <MessageList messages={messages} isLoading={true} />,
+    <MessageList messages={messages} isLoading={true} />
   );
 
   // Check that exactly one "Generating..." text appears
   const loadingText = container.querySelectorAll(".text-neutral-500");
   const generatingElements = Array.from(loadingText).filter(
-    (el) => el.textContent === "Generating...",
+    (el) => el.textContent === "Generating..."
   );
   expect(generatingElements).toHaveLength(1);
 });
